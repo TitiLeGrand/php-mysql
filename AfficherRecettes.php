@@ -1,8 +1,16 @@
 <?php
 // Déclaration du tableau des recettes
 $recipes = [
-['Cassoulet','[...]','mickael.andrieu@exemple.com',true,],
-['Couscous','[...]','mickael.andrieu@exemple.com',false,],
+[
+    'title'=>'Cassoulet',
+    'recipe'=>'[...]',
+    'author'=>'mickael.andrieu@exemple.com',
+    'is_enabled'=>true,],
+[
+    'title'=>'Couscous',
+    'recipe'=>'[...]',
+    'author'=>'mickael.andrieu@exemple.com',
+    'is_enabled'=>false,],
 ];
 ?>
 
@@ -14,11 +22,16 @@ $recipes = [
 </head>
 <body>
     <ul>
-        <?php for ($lines = 0; $lines <= 1; $lines++): ?>
-        <li>
-            <?php echo $recipes[$lines][0] . ' (' . $recipes[$lines][2] . ')';?>
-        </li>
-        <?php endfor; ?>
+
+    <?php 
+    echo('<h1>Affichage des recettes</h1>');
+    foreach($recipes as $recipe) {
+        if ($recipe['is_enabled'] == true){
+            echo '<h2>',$recipe['title'],'</h2>',$recipe['recipe'],'<br><em>',$recipe['author'],'</em>';
+        }
+        
+    }?>
+        
     </ul>
 </body>
 </html>
